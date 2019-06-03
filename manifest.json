@@ -1,0 +1,18 @@
+{
+    "name": "test_Get",
+    "description": "Get_Data",
+    "version": "0.1",
+    "manifest_version": 2,
+    "app": {
+      "background": {
+        "scripts": ["background.js"]
+      }
+    },
+    "icons": {
+         "16": "calculator-16.png",
+          "128": "calculator-128.png" 
+        },
+        "permissions": ["gcm","storage","notifications","<all_urls>"],
+  
+        "sockets": { "tcp": {"connect": "0.0.0.0:8999" } }
+  }

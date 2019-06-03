@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <style>
+          .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+          }
+          .button1 {border-radius: 12px;}
+      
+          </style>
+  </head>
+  <body>
+      <p id ="demo"></p>
+    <button type="button" id="test" class="button button1" onclick="myFunction()" >Get News</button>
+    <script >
+       function myFunction() {
+  
+  const request = require('request');
+      const cheerio = require('cheerio');
+ request('http://www.svc.ac.th/index.php/th/', (error, response, html) => {
+
+      if(!error && response.statusCode == 200){
+        document.getElementById("demo").innerHTML = "Hello World";
+        const $ = cheerio.load(html);
+
+        const siteHeading = $('.col-sm-6');
+
+                 const output = siteHeading.find('h1#entry-title main_title').text();       
+        console.log(siteHeading.html());
+    }
+});
+}
+      
+    </script>
+  </body>
+</html>
